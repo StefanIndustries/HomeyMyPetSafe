@@ -1,0 +1,26 @@
+<form class="homey-form">
+    <div class="homey-form-group">
+        <label class="homey-form-label" for="email">Email</label>
+        <input class="homey-form-input" id="email" type="email" placeholder="example@mail.com" autocomplete="off"/>
+    </div>
+</form>
+<br><br>
+<button class="homey-button-primary-full" onclick="confirmEmail()" id="submit">Submit</button>
+
+<script type="application/javascript">
+    const submitButton = document.getElementById('submit');
+
+    function confirmEmail() {
+        submitButton.classList.add('is-loading');
+        const email = document.getElementById('email').value;
+        const dataToSend = {email: email};
+        Homey.emit('email_submitted', dataToSend)
+            .then(function(result) {
+                if (result) {
+                    Homey.nextView();
+                }
+            }).catch(function(err) {
+            Homey.alert(err);
+        });
+    }
+</script>
