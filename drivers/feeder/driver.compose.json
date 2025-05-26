@@ -21,7 +21,12 @@
   },
   "pair": [
     {
-      "id": "email"
+      "id": "prepare_pair",
+      "template": "loading"
+    },
+    {
+      "id": "email",
+      "navigation": { "next": "pincode" }
     },
     {
       "id": "pincode",
@@ -31,11 +36,13 @@
         "hint": "Enter the pincode you received in your email",
         "type": "number",
         "length": 8
-      }
+      },
+      "navigation": { "next": "getting_tokens" }
     },
     {
-      "id": "loading",
-      "template": "loading"
+      "id": "getting_tokens",
+      "template": "loading",
+      "navigation": { "next": "list_devices" }
     },
     {
       "id": "list_devices",
@@ -44,7 +51,8 @@
     },
     {
       "id": "add_devices",
-      "template": "add_devices"
+      "template": "add_devices",
+      "navigation": { "next": "done" }
     },
     {
       "id": "done",
