@@ -79,15 +79,8 @@
             "title": "Enter your pincode",
             "hint": "Enter the pincode you received in your email",
             "type": "number",
-            "length": 8
+            "length": 6
           },
-          "navigation": {
-            "next": "getting_tokens"
-          }
-        },
-        {
-          "id": "getting_tokens",
-          "template": "loading",
           "navigation": {
             "next": "list_devices"
           }

@@ -5,10 +5,11 @@
   "scripts": {
     "build": "tsc",
     "lint": "eslint --ext .js,.ts --ignore-path .gitignore .",
-    "validate": "homey app validate --level publish"
+    "validate": "homey app validate --level publish",
+    "run": "homey app run --remote"
   },
   "dependencies": {
-    "mypetsafe": "^1.0.0"
+    "mypetsafe": "^1.1.4"
   },
   "devDependencies": {
     "homey": "^3.8.1",
