@@ -29,7 +29,6 @@ export class MyPetSafeApp extends Homey.App {
       const session = this.homey.settings.get("session");
       this.petSafeClient = new PetSafeClient(email, idToken, refreshToken, accessToken, session);
       this.petSafeClient.onTokenRefreshed(() => this.updateTokensInStorage());
-      await this.updateDeviceData();
     } else {
       this.log('initPetSafeClient: no tokens found');
     }
@@ -40,8 +39,11 @@ export class MyPetSafeApp extends Homey.App {
     this.feeders = await this.petSafeClient!.getFeeders();
     try {
       const feederDriver = <FeederDriver> this.homey.drivers.getDriver('feeder');
+      await new Promise(resolve => setTimeout(resolve, 1000));
       feederDriver.setFeederData(this.feeders);
+      return true;
     } catch (e) {
+      return false;
       this.log('updateDeviceData: error setting feeder data', e);
     }
     // this.scoopers = await this.petSafeClient!.getLitterboxes();

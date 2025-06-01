@@ -1,0 +1,10 @@
+{
+  "type": "boolean",
+  "getable": true,
+  "setable": false,
+  "insights": false,
+  "title": {
+    "en": "Low food",
+    "nl": "Weinig voer"
+  }
+}

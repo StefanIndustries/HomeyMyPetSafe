@@ -48,7 +48,10 @@
       "capabilities": [
         "measure_battery",
         "alarm_battery",
-        "alarm_power"
+        "alarm_power",
+        "alarm_low_food",
+        "alarm_no_food",
+        "last_feeding_time"
       ],
       "platforms": [
         "local"
@@ -106,5 +109,36 @@
       ],
       "id": "feeder"
     }
-  ]
+  ],
+  "capabilities": {
+    "alarm_low_food": {
+      "type": "boolean",
+      "getable": true,
+      "setable": false,
+      "insights": false,
+      "title": {
+        "en": "Low food",
+        "nl": "Weinig voer"
+      }
+    },
+    "alarm_no_food": {
+      "type": "boolean",
+      "getable": true,
+      "setable": false,
+      "insights": false,
+      "title": {
+        "en": "No food",
+        "nl": "Geen voer"
+      }
+    },
+    "last_feeding_time": {
+      "type": "string",
+      "title": {
+        "en": "Last feeding time",
+        "nl": "Laatste voedertijd"
+      },
+      "getable": true,
+      "setable": false
+    }
+  }
 }

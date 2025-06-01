@@ -9,7 +9,7 @@
     "run": "homey app run --remote"
   },
   "dependencies": {
-    "mypetsafe": "^1.1.4"
+    "mypetsafe": "^1.1.5"
   },
   "devDependencies": {
     "homey": "^3.8.1",

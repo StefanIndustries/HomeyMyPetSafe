@@ -6,7 +6,10 @@
   "capabilities": [
     "measure_battery",
     "alarm_battery",
-    "alarm_power"
+    "alarm_power",
+    "alarm_low_food",
+    "alarm_no_food",
+    "last_feeding_time"
   ],
   "platforms": [
     "local"

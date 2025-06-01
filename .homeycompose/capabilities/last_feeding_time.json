@@ -1,0 +1,9 @@
+{
+    "type": "string",
+    "title": {
+      "en": "Last feeding time",
+      "nl": "Laatste voedertijd"
+    },
+    "getable": true,
+    "setable": false
+}
