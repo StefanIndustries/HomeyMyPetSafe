@@ -5,7 +5,7 @@ import {DeviceScoopfree, DeviceSmartFeed} from "mypetsafe/lib/devices";
 import {FeederDriver} from "./drivers/feeder/driver";
 
 export class MyPetSafeApp extends Homey.App {
-  private petSafeClient?: PetSafeClient;
+  public petSafeClient?: PetSafeClient;
   private updateDevicesPollingIntervalId: any;
   public feeders: DeviceSmartFeed[] = [];
   public scoopers: DeviceScoopfree[] = [];
@@ -79,22 +79,6 @@ export class MyPetSafeApp extends Homey.App {
       this.updateTokensInStorage();
       this.petSafeClient!.onTokenRefreshed(() => this.updateTokensInStorage());
       return true;
-    });
-
-    session.setHandler('list_devices', async () => {
-      this.log('pair: list_devices');
-      const foundDevices = await this.petSafeClient!.getFeeders();
-      this.feeders = foundDevices;
-      const mappedDevices = this.feeders.map(device => {
-        return {
-          name: device.friendlyName,
-          data: {
-            id: device.id
-          },
-          icon: 'default.svg'
-        }
-      });
-      return mappedDevices;
     });
   }
 

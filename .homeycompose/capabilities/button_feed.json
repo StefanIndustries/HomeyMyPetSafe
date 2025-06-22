@@ -1,0 +1,22 @@
+{
+  "title": {
+    "en": "Feed now",
+    "nl": "Stuur voer"
+  },
+  "type": "boolean",
+  "getable": false,
+  "setable": true,
+  "uiComponent": "button",
+  "uiQuickAction": true,
+  "$flow": {
+    "actions": [
+      {
+        "id": "feed_now",
+        "title": {
+          "en": "Feed now",
+          "nl": "Stuur voer"
+        }
+      }
+    ]
+  }
+}

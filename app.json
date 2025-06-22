@@ -51,7 +51,9 @@
         "alarm_power",
         "alarm_low_food",
         "alarm_no_food",
-        "last_feeding_time"
+        "last_feeding_time",
+        "locked",
+        "button_feed"
       ],
       "platforms": [
         "local"
@@ -117,8 +119,8 @@
       "setable": false,
       "insights": false,
       "title": {
-        "en": "Low food",
-        "nl": "Weinig voer"
+        "en": "Low on food",
+        "nl": "Voer is bijna op"
       }
     },
     "alarm_no_food": {
@@ -128,8 +130,19 @@
       "insights": false,
       "title": {
         "en": "No food",
-        "nl": "Geen voer"
+        "nl": "Voer is op"
       }
+    },
+    "button_feed": {
+      "title": {
+        "en": "Feed now",
+        "nl": "Stuur voer"
+      },
+      "type": "boolean",
+      "getable": false,
+      "setable": true,
+      "uiComponent": "button",
+      "uiQuickAction": true
     },
     "last_feeding_time": {
       "type": "string",

@@ -9,7 +9,9 @@
     "alarm_power",
     "alarm_low_food",
     "alarm_no_food",
-    "last_feeding_time"
+    "last_feeding_time",
+    "locked",
+    "button_feed"
   ],
   "platforms": [
     "local"

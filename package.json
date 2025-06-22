@@ -15,8 +15,8 @@
     "homey": "^3.8.1",
     "@tsconfig/node12": "^12.1.4",
     "@types/homey": "npm:homey-apps-sdk-v3-types@^0.3.12",
-    "@types/node": "^22.15.21",
-    "eslint": "^9.27.0",
+    "@types/node": "^24.0.3",
+    "eslint": "^9.29.0",
     "eslint-config-athom": "^3.1.5",
     "typescript": "^5.8.3"
   }

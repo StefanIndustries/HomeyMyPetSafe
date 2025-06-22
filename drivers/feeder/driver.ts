@@ -26,6 +26,22 @@ export class FeederDriver extends Homey.Driver {
   async onPair(session: PairSession) {
     this.log('starting a new pair session');
     this.app.pairingInitializeAccount(session);
+
+    session.setHandler('list_devices', async () => {
+      this.log('pair: list_devices');
+      const foundDevices = await this.app.petSafeClient!.getFeeders();
+      this.feeders = foundDevices;
+      const mappedDevices = this.feeders.map(device => {
+        return {
+          name: device.friendlyName,
+          data: {
+            id: device.id
+          },
+          icon: 'default.svg'
+        }
+      });
+      return mappedDevices;
+    });
   }
 }
 
