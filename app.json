@@ -61,6 +61,11 @@
       "connectivity": [
         "cloud"
       ],
+      "energy": {
+        "batteries": [
+          "OTHER"
+        ]
+      },
       "images": {
         "small": "/drivers/feeder/assets/images/small.png",
         "large": "/drivers/feeder/assets/images/large.png",
