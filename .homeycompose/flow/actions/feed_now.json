@@ -1,0 +1,14 @@
+{
+  "id": "feed_now",
+  "title": {
+    "en": "Feed now",
+    "nl": "Stuur voer"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=feeder"
+    }
+  ]
+}

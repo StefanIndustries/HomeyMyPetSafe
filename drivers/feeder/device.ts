@@ -37,9 +37,7 @@ export class SmartPetFeederDevice extends Homey.Device {
 
   private async registerCapabilityListeners() {
     this.registerCapabilityListener("button_feed", async (value) => {
-      if (this.feeder === undefined) return;
-      await this.feeder.feed(1, false, true);
-      this.setData(this.feeder);
+      await this.triggerFeed();
     });
 
     this.registerCapabilityListener("locked", async (value) => {
@@ -47,6 +45,12 @@ export class SmartPetFeederDevice extends Homey.Device {
       await this.feeder?.putSetting('child_lock', value, true);
       this.setData(this.feeder);
     });
+  }
+
+  public async triggerFeed() {
+    if (this.feeder === undefined) return;
+    await this.feeder.feed(1, false, true);
+    this.setData(this.feeder);
   }
 }
 

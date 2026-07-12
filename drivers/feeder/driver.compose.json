@@ -61,5 +61,16 @@
       "id": "done",
       "template": "done"
     }
-  ]
+  ],
+  "flow": {
+    "actions": [
+      {
+        "id": "feed_now",
+        "title": {
+          "en": "Feed now",
+          "nl": "Stuur voer"
+        }
+      }
+    ]
+  }
 }

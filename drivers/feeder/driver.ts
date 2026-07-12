@@ -21,6 +21,11 @@ export class FeederDriver extends Homey.Driver {
 
   async onInit() {
     this.log('FeederDriver has been initialized');
+
+    this.homey.flow.getActionCard('feed_now').registerRunListener(async (args, state) => {
+      const device = args.device as SmartPetFeederDevice;
+      await device.triggerFeed();
+    });
   }
 
   async onPair(session: PairSession) {
