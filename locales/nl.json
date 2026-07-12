@@ -1,0 +1,30 @@
+{
+  "driver": {
+    "feeder": {
+      "name": "voederbak"
+    }
+  },
+  "capability": {
+    "feed_now": {
+      "title": "Stuur voer"
+    },
+    "last_feeding_time": {
+      "title": "Laatste voedertijd"
+    },
+    "alarm_low_food": {
+      "title": "Voer is bijna op"
+    },
+    "alarm_no_food": {
+      "title": "Voer is op"
+    }
+  },
+  "pair": {
+    "pincode": {
+      "title": "Voer je pincode in",
+      "hint": "Voer de pincode in die je in je e-mail hebt ontvangen"
+    }
+  },
+  "status": {
+    "initializing": "Initialiseren, dit duurt ~5 minuten..."
+  }
+}

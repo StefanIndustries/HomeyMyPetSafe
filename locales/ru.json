@@ -1,0 +1,30 @@
+{
+  "driver": {
+    "feeder": {
+      "name": "Кормушка"
+    }
+  },
+  "capability": {
+    "feed_now": {
+      "title": "Кормить сейчас"
+    },
+    "last_feeding_time": {
+      "title": "Время последнего кормления"
+    },
+    "alarm_low_food": {
+      "title": "Мало корма"
+    },
+    "alarm_no_food": {
+      "title": "Нет корма"
+    }
+  },
+  "pair": {
+    "pincode": {
+      "title": "Введите свой PIN-код",
+      "hint": "Введите PIN-код, полученный по электронной почте"
+    }
+  },
+  "status": {
+    "initializing": "Инициализация, это займет около 5 минут..."
+  }
+}

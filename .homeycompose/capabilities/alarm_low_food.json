@@ -3,8 +3,5 @@
   "getable": true,
   "setable": false,
   "insights": false,
-  "title": {
-    "en": "Low on food",
-    "nl": "Voer is bijna op"
-  }
+  "title": "{{capability.alarm_low_food.title}}"
 }

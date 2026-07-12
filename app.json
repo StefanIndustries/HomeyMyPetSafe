@@ -43,10 +43,7 @@
     "actions": [
       {
         "id": "feed_now",
-        "title": {
-          "en": "Feed now",
-          "nl": "Stuur voer"
-        },
+        "title": "{{capability.feed_now.title}}",
         "args": [
           {
             "type": "device",
@@ -59,9 +56,7 @@
   },
   "drivers": [
     {
-      "name": {
-        "en": "feeder"
-      },
+      "name": "{{driver.feeder.name}}",
       "class": "petfeeder",
       "capabilities": [
         "measure_battery",
@@ -104,8 +99,8 @@
           "id": "pincode",
           "template": "pincode",
           "options": {
-            "title": "Enter your pincode",
-            "hint": "Enter the pincode you received in your email",
+            "title": "{{pair.pincode.title}}",
+            "hint": "{{pair.pincode.hint}}",
             "type": "number",
             "length": 6
           },
@@ -136,10 +131,7 @@
         "actions": [
           {
             "id": "feed_now",
-            "title": {
-              "en": "Feed now",
-              "nl": "Stuur voer"
-            }
+            "title": "{{capability.feed_now.title}}"
           }
         ]
       },
@@ -152,26 +144,17 @@
       "getable": true,
       "setable": false,
       "insights": false,
-      "title": {
-        "en": "Low on food",
-        "nl": "Voer is bijna op"
-      }
+      "title": "{{capability.alarm_low_food.title}}"
     },
     "alarm_no_food": {
       "type": "boolean",
       "getable": true,
       "setable": false,
       "insights": false,
-      "title": {
-        "en": "No food",
-        "nl": "Voer is op"
-      }
+      "title": "{{capability.alarm_no_food.title}}"
     },
     "button_feed": {
-      "title": {
-        "en": "Feed now",
-        "nl": "Stuur voer"
-      },
+      "title": "{{capability.feed_now.title}}",
       "type": "boolean",
       "getable": false,
       "setable": true,
@@ -180,10 +163,7 @@
     },
     "last_feeding_time": {
       "type": "string",
-      "title": {
-        "en": "Last feeding time",
-        "nl": "Laatste voedertijd"
-      },
+      "title": "{{capability.last_feeding_time.title}}",
       "getable": true,
       "setable": false
     }

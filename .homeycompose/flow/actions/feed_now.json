@@ -1,9 +1,6 @@
 {
   "id": "feed_now",
-  "title": {
-    "en": "Feed now",
-    "nl": "Stuur voer"
-  },
+  "title": "{{capability.feed_now.title}}",
   "args": [
     {
       "type": "device",

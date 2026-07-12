@@ -1,0 +1,30 @@
+{
+  "driver": {
+    "feeder": {
+      "name": "Mater"
+    }
+  },
+  "capability": {
+    "feed_now": {
+      "title": "Mat nå"
+    },
+    "last_feeding_time": {
+      "title": "Siste matningstid"
+    },
+    "alarm_low_food": {
+      "title": "Lite mat"
+    },
+    "alarm_no_food": {
+      "title": "Tomt for mat"
+    }
+  },
+  "pair": {
+    "pincode": {
+      "title": "Skriv inn PIN-koden din",
+      "hint": "Skriv inn PIN-koden du mottok på e-post"
+    }
+  },
+  "status": {
+    "initializing": "Initialiserer, dette tar ca. 5 minutter..."
+  }
+}

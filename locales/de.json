@@ -1,0 +1,30 @@
+{
+  "driver": {
+    "feeder": {
+      "name": "Futterautomat"
+    }
+  },
+  "capability": {
+    "feed_now": {
+      "title": "Jetzt füttern"
+    },
+    "last_feeding_time": {
+      "title": "Letzte Fütterungszeit"
+    },
+    "alarm_low_food": {
+      "title": "Wenig Futter"
+    },
+    "alarm_no_food": {
+      "title": "Kein Futter"
+    }
+  },
+  "pair": {
+    "pincode": {
+      "title": "Geben Sie Ihren PIN-Code ein",
+      "hint": "Geben Sie den PIN-Code ein, den Sie per E-Mail erhalten haben"
+    }
+  },
+  "status": {
+    "initializing": "Initialisierung, dies dauert ca. 5 Minuten..."
+  }
+}

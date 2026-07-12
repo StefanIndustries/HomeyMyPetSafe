@@ -1,8 +1,5 @@
 {
-  "title": {
-    "en": "Feed now",
-    "nl": "Stuur voer"
-  },
+  "title": "{{capability.feed_now.title}}",
   "type": "boolean",
   "getable": false,
   "setable": true,
@@ -12,10 +9,7 @@
     "actions": [
       {
         "id": "feed_now",
-        "title": {
-          "en": "Feed now",
-          "nl": "Stuur voer"
-        }
+        "title": "{{capability.feed_now.title}}"
       }
     ]
   }

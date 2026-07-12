@@ -31,7 +31,7 @@ export class SmartPetFeederDevice extends Homey.Device {
 
   async onInit() {
     this.log('SmartPetFeederDevice has been initialized');
-    await this.setUnavailable('Initializing, this takes ~5 minutes...');
+    await this.setUnavailable(this.homey.__('status.initializing'));
     await this.registerCapabilityListeners();
   }
 

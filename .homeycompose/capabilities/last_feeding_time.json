@@ -1,9 +1,6 @@
 {
     "type": "string",
-    "title": {
-      "en": "Last feeding time",
-      "nl": "Laatste voedertijd"
-    },
+    "title": "{{capability.last_feeding_time.title}}",
     "getable": true,
     "setable": false
 }

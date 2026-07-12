@@ -1,0 +1,30 @@
+{
+  "driver": {
+    "feeder": {
+      "name": "Foderautomat"
+    }
+  },
+  "capability": {
+    "feed_now": {
+      "title": "Foder nu"
+    },
+    "last_feeding_time": {
+      "title": "Sidste fodringstid"
+    },
+    "alarm_low_food": {
+      "title": "Lavt foderniveau"
+    },
+    "alarm_no_food": {
+      "title": "Intet foder"
+    }
+  },
+  "pair": {
+    "pincode": {
+      "title": "Indtast din pinkode",
+      "hint": "Indtast den pinkode, du modtog i din e-mail"
+    }
+  },
+  "status": {
+    "initializing": "Initialiserer, dette tager ca. 5 minutter..."
+  }
+}

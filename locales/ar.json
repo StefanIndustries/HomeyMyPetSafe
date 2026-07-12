@@ -1,0 +1,30 @@
+{
+  "driver": {
+    "feeder": {
+      "name": "وحدة تغذية"
+    }
+  },
+  "capability": {
+    "feed_now": {
+      "title": "أطعم الآن"
+    },
+    "last_feeding_time": {
+      "title": "وقت آخر تغذية"
+    },
+    "alarm_low_food": {
+      "title": "طعام قليل"
+    },
+    "alarm_no_food": {
+      "title": "لا يوجد طعام"
+    }
+  },
+  "pair": {
+    "pincode": {
+      "title": "أدخل رمز PIN الخاص بك",
+      "hint": "أدخل رمز PIN الذي تلقيته في بريدك الإلكتروني"
+    }
+  },
+  "status": {
+    "initializing": "جاري التهيئة، يستغرق هذا حوالي 5 دقائق..."
+  }
+}

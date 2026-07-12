@@ -1,7 +1,5 @@
 {
-  "name": {
-    "en": "feeder"
-  },
+  "name": "{{driver.feeder.name}}",
   "class": "petfeeder",
   "capabilities": [
     "measure_battery",
@@ -40,8 +38,8 @@
       "id": "pincode",
       "template": "pincode",
       "options": {
-        "title": "Enter your pincode",
-        "hint": "Enter the pincode you received in your email",
+        "title": "{{pair.pincode.title}}",
+        "hint": "{{pair.pincode.hint}}",
         "type": "number",
         "length": 6
       },
@@ -66,10 +64,7 @@
     "actions": [
       {
         "id": "feed_now",
-        "title": {
-          "en": "Feed now",
-          "nl": "Stuur voer"
-        }
+        "title": "{{capability.feed_now.title}}"
       }
     ]
   }
