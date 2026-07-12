@@ -1,5 +1,8 @@
 {
   "1.0.0": {
     "en": "Initial app release with feeder functionality"
+  },
+  "1.0.1": {
+    "en": "Added localization and feed now action card"
   }
 }
