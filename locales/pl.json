@@ -1,29 +1,4 @@
 {
-  "driver": {
-    "feeder": {
-      "name": "Podajnik"
-    }
-  },
-  "capability": {
-    "feed_now": {
-      "title": "Karm teraz"
-    },
-    "last_feeding_time": {
-      "title": "Czas ostatniego karmienia"
-    },
-    "alarm_low_food": {
-      "title": "Mało jedzenia"
-    },
-    "alarm_no_food": {
-      "title": "Brak jedzenia"
-    }
-  },
-  "pair": {
-    "pincode": {
-      "title": "Wprowadź swój kod PIN",
-      "hint": "Wprowadź kod PIN otrzymany w wiadomości e-mail"
-    }
-  },
   "status": {
     "initializing": "Inicjowanie, potrwa to około 5 minut..."
   }

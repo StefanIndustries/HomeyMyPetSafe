@@ -1,6 +1,20 @@
 {
     "type": "string",
-    "title": "{{capability.last_feeding_time.title}}",
+    "title": {
+      "ar": "وقت آخر تغذية",
+      "da": "Sidste fodringstid",
+      "de": "Letzte Fütterungszeit",
+      "en": "Last feeding time",
+      "es": "Última hora de alimentación",
+      "fr": "Dernière heure de nourrissage",
+      "it": "Ultima ora di alimentazione",
+      "ko": "마지막 급식 시간",
+      "nl": "Laatste voedertijd",
+      "no": "Siste matningstid",
+      "pl": "Czas ostatniego karmienia",
+      "ru": "Время последнего кормления",
+      "sv": "Senaste matningstid"
+    },
     "getable": true,
     "setable": false
 }

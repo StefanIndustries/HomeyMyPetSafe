@@ -1,29 +1,4 @@
 {
-  "driver": {
-    "feeder": {
-      "name": "Distributeur"
-    }
-  },
-  "capability": {
-    "feed_now": {
-      "title": "Nourrir maintenant"
-    },
-    "last_feeding_time": {
-      "title": "Dernière heure de nourrissage"
-    },
-    "alarm_low_food": {
-      "title": "Peu de nourriture"
-    },
-    "alarm_no_food": {
-      "title": "Plus de nourriture"
-    }
-  },
-  "pair": {
-    "pincode": {
-      "title": "Entrez votre code PIN",
-      "hint": "Entrez le code PIN que vous avez reçu par e-mail"
-    }
-  },
   "status": {
     "initializing": "Initialisation, cela prend environ 5 minutes..."
   }

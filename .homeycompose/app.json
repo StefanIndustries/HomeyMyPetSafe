@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.mypetsafe",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "compatibility": ">=12.2.0",
   "sdk": 3,
   "platforms": [
@@ -11,7 +11,19 @@
     "en": "MyPetSafe"
   },
   "description": {
-    "en": ""
+    "ar": "تطبيق MyPetSafe لهومي. تحكم في مغذيات MyPetSafe الذكية الخاصة بك.",
+    "da": "MyPetSafe-app til Homey. Styr dine MyPetSafe smarte foderautomater.",
+    "de": "MyPetSafe-App für Homey. Steuern Sie Ihre intelligenten MyPetSafe-Futterautomaten.",
+    "en": "MyPetSafe app for Homey. Control your MyPetSafe smart feeders.",
+    "es": "Aplicación MyPetSafe para Homey. Controla tus comederos inteligentes MyPetSafe.",
+    "fr": "Application MyPetSafe pour Homey. Contrôlez vos distributeurs intelligents MyPetSafe.",
+    "it": "App MyPetSafe per Homey. Controlla i tuoi alimentatori intelligenti MyPetSafe.",
+    "ko": "Homey용 MyPetSafe 앱. MyPetSafe 스마트 급식기를 제어하세요.",
+    "nl": "MyPetSafe-app voor Homey. Bedien je MyPetSafe slimme voederbakken.",
+    "no": "MyPetSafe-app for Homey. Kontroller dine MyPetSafe smarte matere.",
+    "pl": "Aplikacja MyPetSafe dla Homey. Steruj swoimi inteligentnymi podajnikami MyPetSafe.",
+    "ru": "Приложение MyPetSafe для Homey. Управляйте своими умными кормушками MyPetSafe.",
+    "sv": "MyPetSafe-app för Homey. Kontrollera dina MyPetSafe smarta matare."
   },
   "category": [
     "appliances"

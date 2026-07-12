@@ -1,5 +1,19 @@
 {
-  "title": "{{capability.feed_now.title}}",
+  "title": {
+    "ar": "أطعم الآن",
+    "da": "Foder nu",
+    "de": "Jetzt füttern",
+    "en": "Feed now",
+    "es": "Alimentar ahora",
+    "fr": "Nourrir maintenant",
+    "it": "Alimenta ora",
+    "ko": "지금 급식",
+    "nl": "Stuur voer",
+    "no": "Mat nå",
+    "pl": "Karm teraz",
+    "ru": "Кормить сейчас",
+    "sv": "Mata nu"
+  },
   "type": "boolean",
   "getable": false,
   "setable": true,
@@ -9,7 +23,21 @@
     "actions": [
       {
         "id": "feed_now",
-        "title": "{{capability.feed_now.title}}"
+        "title": {
+          "ar": "أطعم الآن",
+          "da": "Foder nu",
+          "de": "Jetzt füttern",
+          "en": "Feed now",
+          "es": "Alimentar ahora",
+          "fr": "Nourrir maintenant",
+          "it": "Alimenta ora",
+          "ko": "지금 급식",
+          "nl": "Stuur voer",
+          "no": "Mat nå",
+          "pl": "Karm teraz",
+          "ru": "Кормить сейчас",
+          "sv": "Mata nu"
+        }
       }
     ]
   }

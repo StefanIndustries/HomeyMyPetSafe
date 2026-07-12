@@ -1,29 +1,4 @@
 {
-  "driver": {
-    "feeder": {
-      "name": "급식기"
-    }
-  },
-  "capability": {
-    "feed_now": {
-      "title": "지금 급식"
-    },
-    "last_feeding_time": {
-      "title": "마지막 급식 시간"
-    },
-    "alarm_low_food": {
-      "title": "사료 부족"
-    },
-    "alarm_no_food": {
-      "title": "사료 없음"
-    }
-  },
-  "pair": {
-    "pincode": {
-      "title": "PIN 코드를 입력하세요",
-      "hint": "이메일로 받은 PIN 코드를 입력하세요"
-    }
-  },
   "status": {
     "initializing": "초기화 중, 약 5분 정도 소요됩니다..."
   }

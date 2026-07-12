@@ -1,29 +1,4 @@
 {
-  "driver": {
-    "feeder": {
-      "name": "Distributore"
-    }
-  },
-  "capability": {
-    "feed_now": {
-      "title": "Alimenta ora"
-    },
-    "last_feeding_time": {
-      "title": "Ultima ora di alimentazione"
-    },
-    "alarm_low_food": {
-      "title": "Cibo scarso"
-    },
-    "alarm_no_food": {
-      "title": "Senza cibo"
-    }
-  },
-  "pair": {
-    "pincode": {
-      "title": "Inserisci il tuo codice PIN",
-      "hint": "Inserisci il codice PIN ricevuto via e-mail"
-    }
-  },
   "status": {
     "initializing": "Inizializzazione, ci vorranno circa 5 minuti..."
   }

@@ -3,5 +3,19 @@
   "getable": true,
   "setable": false,
   "insights": false,
-  "title": "{{capability.alarm_no_food.title}}"
+  "title": {
+    "ar": "لا يوجد طعام",
+    "da": "Intet foder",
+    "de": "Kein Futter",
+    "en": "No food",
+    "es": "Sin comida",
+    "fr": "Plus de nourriture",
+    "it": "Senza cibo",
+    "ko": "사료 없음",
+    "nl": "Voer is op",
+    "no": "Tomt for mat",
+    "pl": "Brak jedzenia",
+    "ru": "Нет корма",
+    "sv": "Slut på mat"
+  }
 }

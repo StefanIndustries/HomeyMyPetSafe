@@ -1,5 +1,19 @@
 {
-  "name": "{{driver.feeder.name}}",
+  "name": {
+    "ar": "وحدة تغذية",
+    "da": "Foderautomat",
+    "de": "Futterautomat",
+    "en": "feeder",
+    "es": "Alimentador",
+    "fr": "Distributeur",
+    "it": "Distributore",
+    "ko": "급식기",
+    "nl": "voederbak",
+    "no": "Mater",
+    "pl": "Podajnik",
+    "ru": "Кормушка",
+    "sv": "Matare"
+  },
   "class": "petfeeder",
   "capabilities": [
     "measure_battery",
@@ -38,8 +52,36 @@
       "id": "pincode",
       "template": "pincode",
       "options": {
-        "title": "{{pair.pincode.title}}",
-        "hint": "{{pair.pincode.hint}}",
+        "title": {
+          "ar": "أدخل رمز PIN الخاص بك",
+          "da": "Indtast din pinkode",
+          "de": "Geben Sie Ihren PIN-Code ein",
+          "en": "Enter your pincode",
+          "es": "Introduce tu código PIN",
+          "fr": "Entrez votre code PIN",
+          "it": "Inserisci il tuo codice PIN",
+          "ko": "PIN 코드를 입력하세요",
+          "nl": "Voer je pincode in",
+          "no": "Skriv inn PIN-koden din",
+          "pl": "Wprowadź swój kod PIN",
+          "ru": "Введите свой PIN-код",
+          "sv": "Ange din PIN-kod"
+        },
+        "hint": {
+          "ar": "أدخل رمز PIN الذي تلقيته في بريدك الإلكتروني",
+          "da": "Indtast den pinkode, du modtog i din e-mail",
+          "de": "Geben Sie den PIN-Code ein, den Sie per E-Mail erhalten haben",
+          "en": "Enter the pincode you received in your email",
+          "es": "Introduce el código PIN que recibiste en tu correo electrónico",
+          "fr": "Entrez le code PIN que vous avez reçu par e-mail",
+          "it": "Inserisci il codice PIN ricevuto via e-mail",
+          "ko": "이메일로 받은 PIN 코드를 입력하세요",
+          "nl": "Voer de pincode in die je in je e-mail hebt ontvangen",
+          "no": "Skriv inn PIN-koden du mottok på e-post",
+          "pl": "Wprowadź kod PIN otrzymany w wiadomości e-mail",
+          "ru": "Введите PIN-код, полученный по электронной почте",
+          "sv": "Ange PIN-koden du fick i ditt mejl"
+        },
         "type": "number",
         "length": 6
       },
@@ -64,7 +106,21 @@
     "actions": [
       {
         "id": "feed_now",
-        "title": "{{capability.feed_now.title}}"
+        "title": {
+          "ar": "أطعم الآن",
+          "da": "Foder nu",
+          "de": "Jetzt füttern",
+          "en": "Feed now",
+          "es": "Alimentar ahora",
+          "fr": "Nourrir maintenant",
+          "it": "Alimenta ora",
+          "ko": "지금 급식",
+          "nl": "Stuur voer",
+          "no": "Mat nå",
+          "pl": "Karm teraz",
+          "ru": "Кормить сейчас",
+          "sv": "Mata nu"
+        }
       }
     ]
   }

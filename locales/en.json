@@ -1,29 +1,4 @@
 {
-  "driver": {
-    "feeder": {
-      "name": "feeder"
-    }
-  },
-  "capability": {
-    "feed_now": {
-      "title": "Feed now"
-    },
-    "last_feeding_time": {
-      "title": "Last feeding time"
-    },
-    "alarm_low_food": {
-      "title": "Low on food"
-    },
-    "alarm_no_food": {
-      "title": "No food"
-    }
-  },
-  "pair": {
-    "pincode": {
-      "title": "Enter your pincode",
-      "hint": "Enter the pincode you received in your email"
-    }
-  },
   "status": {
     "initializing": "Initializing, this takes ~5 minutes..."
   }

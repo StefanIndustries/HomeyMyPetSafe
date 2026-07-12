@@ -1,29 +1,4 @@
 {
-  "driver": {
-    "feeder": {
-      "name": "Matare"
-    }
-  },
-  "capability": {
-    "feed_now": {
-      "title": "Mata nu"
-    },
-    "last_feeding_time": {
-      "title": "Senaste matningstid"
-    },
-    "alarm_low_food": {
-      "title": "Lite mat"
-    },
-    "alarm_no_food": {
-      "title": "Slut på mat"
-    }
-  },
-  "pair": {
-    "pincode": {
-      "title": "Ange din PIN-kod",
-      "hint": "Ange PIN-koden du fick i ditt mejl"
-    }
-  },
   "status": {
     "initializing": "Initierar, detta tar ca 5 minuter..."
   }

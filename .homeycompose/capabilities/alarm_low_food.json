@@ -3,5 +3,19 @@
   "getable": true,
   "setable": false,
   "insights": false,
-  "title": "{{capability.alarm_low_food.title}}"
+  "title": {
+    "ar": "طعام قليل",
+    "da": "Lavt foderniveau",
+    "de": "Wenig Futter",
+    "en": "Low on food",
+    "es": "Poca comida",
+    "fr": "Peu de nourriture",
+    "it": "Cibo scarso",
+    "ko": "사료 부족",
+    "nl": "Voer is bijna op",
+    "no": "Lite mat",
+    "pl": "Mało jedzenia",
+    "ru": "Мало корма",
+    "sv": "Lite mat"
+  }
 }
