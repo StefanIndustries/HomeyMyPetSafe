@@ -19,26 +19,5 @@
   "setable": true,
   "uiComponent": "button",
   "uiQuickAction": true,
-  "$flow": {
-    "actions": [
-      {
-        "id": "feed_now",
-        "title": {
-          "ar": "أطعم الآن",
-          "da": "Foder nu",
-          "de": "Jetzt füttern",
-          "en": "Feed now",
-          "es": "Alimentar ahora",
-          "fr": "Nourrir maintenant",
-          "it": "Alimenta ora",
-          "ko": "지금 급식",
-          "nl": "Stuur voer",
-          "no": "Mat nå",
-          "pl": "Karm teraz",
-          "ru": "Кормить сейчас",
-          "sv": "Mata nu"
-        }
-      }
-    ]
-  }
+  "icon": "/assets/capabilities/send_food.svg"
 }

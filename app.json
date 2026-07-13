@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.mypetsafe",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "compatibility": ">=12.2.0",
   "sdk": 3,
   "platforms": [
@@ -11,7 +11,19 @@
     "en": "MyPetSafe"
   },
   "description": {
-    "en": ""
+    "ar": "تطبيق MyPetSafe لهومي. تحكم في مغذيات MyPetSafe الذكية الخاصة بك.",
+    "da": "MyPetSafe-app til Homey. Styr dine MyPetSafe smarte foderautomater.",
+    "de": "MyPetSafe-App für Homey. Steuern Sie Ihre intelligenten MyPetSafe-Futterautomaten.",
+    "en": "MyPetSafe app for Homey. Control your MyPetSafe smart feeders.",
+    "es": "Aplicación MyPetSafe para Homey. Controla tus comederos inteligentes MyPetSafe.",
+    "fr": "Application MyPetSafe pour Homey. Contrôlez vos distributeurs intelligents MyPetSafe.",
+    "it": "App MyPetSafe per Homey. Controlla i tuoi alimentatori intelligenti MyPetSafe.",
+    "ko": "Homey용 MyPetSafe 앱. MyPetSafe 스마트 급식기를 제어하세요.",
+    "nl": "MyPetSafe-app voor Homey. Bedien je MyPetSafe slimme voederbakken.",
+    "no": "MyPetSafe-app for Homey. Kontroller dine MyPetSafe smarte matere.",
+    "pl": "Aplikacja MyPetSafe dla Homey. Steruj swoimi inteligentnymi podajnikami MyPetSafe.",
+    "ru": "Приложение MyPetSafe для Homey. Управляйте своими умными кормушками MyPetSafe.",
+    "sv": "MyPetSafe-app för Homey. Kontrollera dina MyPetSafe smarta matare."
   },
   "category": [
     "appliances"
@@ -43,7 +55,21 @@
     "actions": [
       {
         "id": "feed_now",
-        "title": "{{capability.feed_now.title}}",
+        "title": {
+          "ar": "أطعم الآن",
+          "da": "Foder nu",
+          "de": "Jetzt füttern",
+          "en": "Feed now",
+          "es": "Alimentar ahora",
+          "fr": "Nourrir maintenant",
+          "it": "Alimenta ora",
+          "ko": "지금 급식",
+          "nl": "Stuur voer",
+          "no": "Mat nå",
+          "pl": "Karm teraz",
+          "ru": "Кормить сейчас",
+          "sv": "Mata nu"
+        },
         "args": [
           {
             "type": "device",
@@ -56,7 +82,21 @@
   },
   "drivers": [
     {
-      "name": "{{driver.feeder.name}}",
+      "name": {
+        "ar": "وحدة تغذية",
+        "da": "Foderautomat",
+        "de": "Futterautomat",
+        "en": "feeder",
+        "es": "Alimentador",
+        "fr": "Distributeur",
+        "it": "Distributore",
+        "ko": "급식기",
+        "nl": "voederbak",
+        "no": "Mater",
+        "pl": "Podajnik",
+        "ru": "Кормушка",
+        "sv": "Matare"
+      },
       "class": "petfeeder",
       "capabilities": [
         "measure_battery",
@@ -99,8 +139,36 @@
           "id": "pincode",
           "template": "pincode",
           "options": {
-            "title": "{{pair.pincode.title}}",
-            "hint": "{{pair.pincode.hint}}",
+            "title": {
+              "ar": "أدخل رمز PIN الخاص بك",
+              "da": "Indtast din pinkode",
+              "de": "Geben Sie Ihren PIN-Code ein",
+              "en": "Enter your pincode",
+              "es": "Introduce tu código PIN",
+              "fr": "Entrez votre code PIN",
+              "it": "Inserisci il tuo codice PIN",
+              "ko": "PIN 코드를 입력하세요",
+              "nl": "Voer je pincode in",
+              "no": "Skriv inn PIN-koden din",
+              "pl": "Wprowadź swój kod PIN",
+              "ru": "Введите свой PIN-код",
+              "sv": "Ange din PIN-kod"
+            },
+            "hint": {
+              "ar": "أدخل رمز PIN الذي تلقيته في بريدك الإلكتروني",
+              "da": "Indtast den pinkode, du modtog i din e-mail",
+              "de": "Geben Sie den PIN-Code ein, den Sie per E-Mail erhalten haben",
+              "en": "Enter the pincode you received in your email",
+              "es": "Introduce el código PIN que recibiste en tu correo electrónico",
+              "fr": "Entrez le code PIN que vous avez reçu par e-mail",
+              "it": "Inserisci il codice PIN ricevuto via e-mail",
+              "ko": "이메일로 받은 PIN 코드를 입력하세요",
+              "nl": "Voer de pincode in die je in je e-mail hebt ontvangen",
+              "no": "Skriv inn PIN-koden du mottok på e-post",
+              "pl": "Wprowadź kod PIN otrzymany w wiadomości e-mail",
+              "ru": "Введите PIN-код, полученный по электронной почте",
+              "sv": "Ange PIN-koden du fick i ditt mejl"
+            },
             "type": "number",
             "length": 6
           },
@@ -131,7 +199,21 @@
         "actions": [
           {
             "id": "feed_now",
-            "title": "{{capability.feed_now.title}}"
+            "title": {
+              "ar": "أطعم الآن",
+              "da": "Foder nu",
+              "de": "Jetzt füttern",
+              "en": "Feed now",
+              "es": "Alimentar ahora",
+              "fr": "Nourrir maintenant",
+              "it": "Alimenta ora",
+              "ko": "지금 급식",
+              "nl": "Stuur voer",
+              "no": "Mat nå",
+              "pl": "Karm teraz",
+              "ru": "Кормить сейчас",
+              "sv": "Mata nu"
+            }
           }
         ]
       },
@@ -144,26 +226,86 @@
       "getable": true,
       "setable": false,
       "insights": false,
-      "title": "{{capability.alarm_low_food.title}}"
+      "icon": "/assets/capabilities/low_food.svg",
+      "title": {
+        "ar": "طعام قليل",
+        "da": "Lavt foderniveau",
+        "de": "Wenig Futter",
+        "en": "Low on food",
+        "es": "Poca comida",
+        "fr": "Peu de nourriture",
+        "it": "Cibo scarso",
+        "ko": "사료 부족",
+        "nl": "Voer is bijna op",
+        "no": "Lite mat",
+        "pl": "Mało jedzenia",
+        "ru": "Мало корма",
+        "sv": "Lite mat"
+      }
     },
     "alarm_no_food": {
       "type": "boolean",
       "getable": true,
       "setable": false,
       "insights": false,
-      "title": "{{capability.alarm_no_food.title}}"
+      "icon": "/assets/capabilities/no_food.svg",
+      "title": {
+        "ar": "لا يوجد طعام",
+        "da": "Intet foder",
+        "de": "Kein Futter",
+        "en": "No food",
+        "es": "Sin comida",
+        "fr": "Plus de nourriture",
+        "it": "Senza cibo",
+        "ko": "사료 없음",
+        "nl": "Voer is op",
+        "no": "Tomt for mat",
+        "pl": "Brak jedzenia",
+        "ru": "Нет корма",
+        "sv": "Slut på mat"
+      }
     },
     "button_feed": {
-      "title": "{{capability.feed_now.title}}",
+      "title": {
+        "ar": "أطعم الآن",
+        "da": "Foder nu",
+        "de": "Jetzt füttern",
+        "en": "Feed now",
+        "es": "Alimentar ahora",
+        "fr": "Nourrir maintenant",
+        "it": "Alimenta ora",
+        "ko": "지금 급식",
+        "nl": "Stuur voer",
+        "no": "Mat nå",
+        "pl": "Karm teraz",
+        "ru": "Кормить сейчас",
+        "sv": "Mata nu"
+      },
       "type": "boolean",
       "getable": false,
       "setable": true,
       "uiComponent": "button",
-      "uiQuickAction": true
+      "uiQuickAction": true,
+      "icon": "/assets/capabilities/send_food.svg"
     },
     "last_feeding_time": {
       "type": "string",
-      "title": "{{capability.last_feeding_time.title}}",
+      "icon": "/assets/capabilities/last_feeding_time.svg",
+      "title": {
+        "ar": "وقت آخر تغذية",
+        "da": "Sidste fodringstid",
+        "de": "Letzte Fütterungszeit",
+        "en": "Last feeding time",
+        "es": "Última hora de alimentación",
+        "fr": "Dernière heure de nourrissage",
+        "it": "Ultima ora di alimentazione",
+        "ko": "마지막 급식 시간",
+        "nl": "Laatste voedertijd",
+        "no": "Siste matningstid",
+        "pl": "Czas ostatniego karmienia",
+        "ru": "Время последнего кормления",
+        "sv": "Senaste matningstid"
+      },
       "getable": true,
       "setable": false
     }

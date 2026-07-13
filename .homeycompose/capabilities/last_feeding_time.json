@@ -1,5 +1,6 @@
 {
     "type": "string",
+    "icon": "/assets/capabilities/last_feeding_time.svg",
     "title": {
       "ar": "وقت آخر تغذية",
       "da": "Sidste fodringstid",

@@ -3,6 +3,7 @@
   "getable": true,
   "setable": false,
   "insights": false,
+  "icon": "/assets/capabilities/no_food.svg",
   "title": {
     "ar": "لا يوجد طعام",
     "da": "Intet foder",

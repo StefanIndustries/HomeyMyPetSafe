@@ -3,6 +3,7 @@
   "getable": true,
   "setable": false,
   "insights": false,
+  "icon": "/assets/capabilities/low_food.svg",
   "title": {
     "ar": "طعام قليل",
     "da": "Lavt foderniveau",
