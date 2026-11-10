@@ -1,0 +1,190 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <style>
+      :root {
+        --pf-text: var(--homey-text-color, #1a1a1a);
+        --pf-text-light: var(--homey-text-color-light, #8a8a8f);
+        --pf-accent: var(--homey-color-highlight, #0a84ff);
+        --pf-green: #34a853;
+        --pf-orange: #f29900;
+        --pf-red: #d93025;
+        --pf-kibble: #b97a3e;
+      }
+
+      html, body { height: 100%; }
+      body { margin: 0; color: var(--pf-text); overflow: hidden; }
+
+      .widget { position: relative; height: 100%; min-height: 140px; }
+
+      /* The feeder on the right. The photo has transparent margins, so it's drawn larger than the box. */
+      .art { position: absolute; top: 0; right: 0; bottom: 0; width: 46%; pointer-events: none; }
+      .feeder-wrap { position: absolute; right: -6%; bottom: -6%; height: 112%; aspect-ratio: 1; }
+      .feeder { width: 100%; height: 100%; object-fit: contain; }
+      /* Kibble only exists during a feed: it's created on tap, falls into the bowl, fades out and is removed. */
+      .kibble {
+        position: absolute; width: 5px; height: 4px; border-radius: 50%;
+        background: var(--pf-kibble); opacity: 0;
+        animation: drop 0.9s cubic-bezier(0.45, 0, 0.9, 0.6) forwards;
+      }
+      @keyframes drop {
+        0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+        15% { opacity: 1; }
+        85% { opacity: 1; }
+        100% { transform: translateY(var(--fall)) rotate(220deg); opacity: 0; }
+      }
+
+      /* Text and button on the left. */
+      .info {
+        position: relative; z-index: 1; width: 54%; height: 100%;
+        display: flex; flex-direction: column; justify-content: center; gap: 4px;
+      }
+      .name {
+        font-size: 17px; font-weight: 600; line-height: 1.25;
+        overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+      }
+      .status { display: flex; align-items: center; gap: 6px; font-size: 14px; }
+      .dot { flex: none; width: 8px; height: 8px; border-radius: 50%; background: var(--pf-green); }
+      .status.low .dot { background: var(--pf-orange); }
+      .status.empty .dot { background: var(--pf-red); }
+      .status.error { color: var(--pf-red); }
+      .status.error .dot { display: none; }
+      .meta {
+        font-size: 13px; line-height: 1.3; color: var(--pf-text-light); min-height: 1.3em;
+        display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden;
+      }
+
+      .feed {
+        align-self: flex-start; margin-top: 8px;
+        display: inline-flex; align-items: center; gap: 6px;
+        padding: 8px 16px; border: none; border-radius: 999px;
+        background: var(--pf-accent); color: #fff;
+        font: inherit; font-size: 14px; font-weight: 600; cursor: pointer;
+        -webkit-tap-highlight-color: transparent; transition: transform 0.1s, opacity 0.2s;
+      }
+      .feed:active { transform: scale(0.96); }
+      .feed:disabled { opacity: 0.5; cursor: default; transform: none; }
+      .feed.done { background: var(--pf-green); opacity: 1; }
+      .feed svg { width: 16px; height: 16px; flex: none; }
+    </style>
+  </head>
+
+  <body class="homey-widget">
+    <div class="widget">
+      <div class="art">
+        <div class="feeder-wrap" id="feeder-wrap"><img class="feeder" src="feeder.png" alt=""></div>
+      </div>
+      <div class="info">
+        <div class="name" id="name">&nbsp;</div>
+        <div class="status" id="status"><span class="dot"></span><span id="status-text">&nbsp;</span></div>
+        <div class="meta" id="meta"></div>
+        <button class="feed" id="feed" type="button" disabled>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 1.5V6.5M9.5 4 12 6.5 14.5 4"/><g transform="translate(0 12.75)"><ellipse cx="12" cy="0" rx="7.5" ry="3"/><path d="M4.5 0 3.2 7Q3 8.5 4.5 8.5H19.5Q21 8.5 20.8 7L19.5 0"/></g></svg>
+          <span id="feed-text"></span>
+        </button>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      const REFRESH_INTERVAL_MS = 60 * 1000;
+
+      function onHomeyReady(Homey) {
+        const settings = Homey.getSettings();
+        const deviceId = settings.device && settings.device.id ? settings.device.id : '';
+        const t = (key, tokens) => Homey.__(`widget.${key}`, tokens);
+
+        const nameEl = document.getElementById('name');
+        const statusEl = document.getElementById('status');
+        const statusText = document.getElementById('status-text');
+        const metaEl = document.getElementById('meta');
+        const feedButton = document.getElementById('feed');
+        const feedText = document.getElementById('feed-text');
+        const feederWrap = document.getElementById('feeder-wrap');
+
+        let state = null;
+        let busy = false;
+        let errorTimer = null;
+
+        feedText.textContent = t('feed_now');
+
+        function render() {
+          if (!state) return;
+          nameEl.textContent = state.name;
+          statusEl.className = `status ${state.food}`;
+          if (!state.available) {
+            statusEl.className = 'status error';
+            statusText.textContent = t('unavailable');
+          } else {
+            statusText.textContent = t(`food_${state.food}`);
+          }
+          const meta = [state.lastFed || t('no_recent_feeding')];
+          if (state.locked) meta.push(t('locked'));
+          metaEl.textContent = meta.join(' · ');
+          if (!busy) feedButton.disabled = !state.available;
+        }
+
+        function showError(message) {
+          clearTimeout(errorTimer);
+          statusEl.className = 'status error';
+          statusText.textContent = message;
+          errorTimer = setTimeout(render, 5000);
+        }
+
+        async function load() {
+          try {
+            const query = deviceId ? `?deviceId=${encodeURIComponent(deviceId)}` : '';
+            state = await Homey.api('GET', `/state${query}`);
+            render();
+          } catch (err) {
+            nameEl.textContent = t('title');
+            showError(err && err.message ? err.message : String(err));
+            clearTimeout(errorTimer);
+            feedButton.disabled = true;
+          }
+        }
+
+        function dropKibble() {
+          // The bowl sits at the front left of the feeder photo.
+          for (let i = 0; i < 12; i++) {
+            const k = document.createElement('span');
+            k.className = 'kibble';
+            // Start at the chute opening and land on the food in the bowl.
+            k.style.left = `${24 + Math.random() * 22}%`;
+            k.style.top = `${44 + Math.random() * 8}%`;
+            k.style.setProperty('--fall', `${feederWrap.clientHeight * (0.2 + Math.random() * 0.06)}px`);
+            k.style.animationDelay = `${i * 70}ms`;
+            feederWrap.appendChild(k);
+            k.addEventListener('animationend', () => k.remove());
+          }
+        }
+
+        feedButton.addEventListener('click', async () => {
+          if (busy) return;
+          busy = true;
+          feedButton.disabled = true;
+          feedText.textContent = t('feeding');
+          try {
+            await Homey.api('POST', '/feed', { deviceId });
+            dropKibble();
+            feedButton.classList.add('done');
+            feedText.textContent = t('fed');
+            // The app refreshes the feeder 5 seconds after feeding; reload just after that
+            // to show the new "last fed" time.
+            setTimeout(load, 7 * 1000);
+          } catch (err) {
+            showError(err && err.message ? err.message : String(err));
+          }
+          setTimeout(() => {
+            busy = false;
+            feedButton.classList.remove('done');
+            feedText.textContent = t('feed_now');
+            render();
+          }, 3000);
+        });
+
+        load().finally(() => Homey.ready());
+        setInterval(load, REFRESH_INTERVAL_MS);
+      }
+    </script>
+  </body>
+</html>

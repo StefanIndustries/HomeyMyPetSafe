@@ -1,5 +1,12 @@
 {
-  "status": {
-    "initializing": "Inicjowanie, potrwa to około 5 minut..."
+  "pair": {
+    "email": {
+      "label": "E-mail"
+    }
+  },
+  "errors": {
+    "invalid_email": "Wprowadź prawidłowy adres e-mail.",
+    "request_code_failed": "Nie udało się wysłać kodu PIN. Sprawdź adres e-mail i spróbuj ponownie.",
+    "feeder_unavailable": "Nie można teraz połączyć się z podajnikiem. Spróbuj ponownie później."
   }
 }

@@ -26,6 +26,14 @@ export class FeederDriver extends Homey.Driver {
       const device = args.device as SmartPetFeederDevice;
       await device.triggerFeed();
     });
+
+    this.homey.flow.getConditionCard('is_low_on_food').registerRunListener(async (args) => {
+      return (args.device as SmartPetFeederDevice).isLowOnFood();
+    });
+
+    this.homey.flow.getConditionCard('is_out_of_food').registerRunListener(async (args) => {
+      return (args.device as SmartPetFeederDevice).isOutOfFood();
+    });
   }
 
   async onPair(session: PairSession) {

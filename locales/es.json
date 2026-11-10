@@ -1,5 +1,12 @@
 {
-  "status": {
-    "initializing": "Inicializando, esto tarda unos 5 minutes..."
+  "pair": {
+    "email": {
+      "label": "Correo electrónico"
+    }
+  },
+  "errors": {
+    "invalid_email": "Introduce una dirección de correo electrónico válida.",
+    "request_code_failed": "No se pudo enviar el código PIN. Comprueba tu correo electrónico e inténtalo de nuevo.",
+    "feeder_unavailable": "No se puede conectar con el alimentador ahora. Inténtalo de nuevo más tarde."
   }
 }

@@ -1,5 +1,12 @@
 {
-  "status": {
-    "initializing": "Initialiserer, dette tar ca. 5 minutter..."
+  "pair": {
+    "email": {
+      "label": "E-post"
+    }
+  },
+  "errors": {
+    "invalid_email": "Skriv inn en gyldig e-postadresse.",
+    "request_code_failed": "Kunne ikke sende PIN-koden. Sjekk e-postadressen din og prøv igjen.",
+    "feeder_unavailable": "Materen er ikke tilgjengelig akkurat nå. Prøv igjen senere."
   }
 }

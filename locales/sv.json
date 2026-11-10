@@ -1,5 +1,12 @@
 {
-  "status": {
-    "initializing": "Initierar, detta tar ca 5 minuter..."
+  "pair": {
+    "email": {
+      "label": "E-post"
+    }
+  },
+  "errors": {
+    "invalid_email": "Ange en giltig e-postadress.",
+    "request_code_failed": "Det gick inte att skicka PIN-koden. Kontrollera din e-postadress och försök igen.",
+    "feeder_unavailable": "Mataren går inte att nå just nu. Försök igen senare."
   }
 }

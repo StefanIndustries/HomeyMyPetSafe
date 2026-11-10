@@ -1,5 +1,32 @@
 {
-  "status": {
-    "initializing": "Initializing, this takes ~5 minutes..."
+  "pair": {
+    "email": {
+      "label": "Email"
+    }
+  },
+  "errors": {
+    "invalid_email": "Enter a valid email address.",
+    "request_code_failed": "Couldn't send the pincode. Check your email address and try again.",
+    "feeder_unavailable": "Can't reach the feeder right now. Try again later."
+  },
+  "widget": {
+    "title": "Feeder",
+    "feed_now": "Feed now",
+    "feeding": "Feeding…",
+    "fed": "Portion given",
+    "food_ok": "Food level OK",
+    "food_low": "Food is running low",
+    "food_empty": "Food has run out",
+    "unavailable": "Can't reach the feeder",
+    "last_fed_today": "Last fed today at __time__",
+    "last_fed_yesterday": "Last fed yesterday at __time__",
+    "last_fed_date": "Last fed __date__ at __time__",
+    "no_recent_feeding": "Not fed in the last 7 days",
+    "locked": "Child lock on",
+    "errors": {
+      "no_devices": "Add a feeder to Homey first.",
+      "select_device": "Choose a feeder in the widget settings.",
+      "device_not_found": "This feeder has been removed. Choose another one in the widget settings."
+    }
   }
 }

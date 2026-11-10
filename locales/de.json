@@ -1,5 +1,12 @@
 {
-  "status": {
-    "initializing": "Initialisierung, dies dauert ca. 5 Minuten..."
+  "pair": {
+    "email": {
+      "label": "E-Mail"
+    }
+  },
+  "errors": {
+    "invalid_email": "Gib eine gültige E-Mail-Adresse ein.",
+    "request_code_failed": "Der PIN-Code konnte nicht gesendet werden. Prüfe deine E-Mail-Adresse und versuche es erneut.",
+    "feeder_unavailable": "Der Futterautomat ist gerade nicht erreichbar. Versuche es später erneut."
   }
 }

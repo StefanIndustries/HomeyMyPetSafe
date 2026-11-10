@@ -1,0 +1,31 @@
+{
+  "name": {
+    "en": "Feeder",
+    "nl": "Voerautomaat"
+  },
+  "height": 168,
+  "settings": [
+    {
+      "id": "device",
+      "type": "autocomplete",
+      "title": {
+        "en": "Feeder",
+        "nl": "Voerautomaat"
+      },
+      "hint": {
+        "en": "Can be left empty when only one feeder is added.",
+        "nl": "Mag leeg blijven als er maar één voerautomaat is toegevoegd."
+      }
+    }
+  ],
+  "api": {
+    "getState": {
+      "method": "GET",
+      "path": "/state"
+    },
+    "feed": {
+      "method": "POST",
+      "path": "/feed"
+    }
+  }
+}

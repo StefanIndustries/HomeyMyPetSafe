@@ -3,6 +3,7 @@ import { PetSafeClient } from "mypetsafe/lib/mypetsafe-client";
 import PairSession from "homey/lib/PairSession";
 import {DeviceScoopfree, DeviceSmartFeed} from "mypetsafe/lib/devices";
 import {FeederDriver} from "./drivers/feeder/driver";
+import type {SmartPetFeederDevice, WidgetState} from "./drivers/feeder/device";
 
 export class MyPetSafeApp extends Homey.App {
   public petSafeClient?: PetSafeClient;
@@ -16,6 +17,42 @@ export class MyPetSafeApp extends Homey.App {
     if (!this.updateDevicesPollingIntervalId) {
       this.updateDevicesPollingIntervalId = this.homey.setInterval(this.updateDeviceData, 300000);
     }
+    // Fetch once right away instead of waiting for the first 5-minute poll.
+    this.updateDeviceData().catch(this.error);
+
+    this.homey.dashboards.getWidget('feeder').registerSettingAutocompleteListener('device', async (query: string) => {
+      return this.getFeederDevices()
+        .map(device => ({ name: device.getName(), id: String(device.getData().id) }))
+        .filter(result => result.name.toLowerCase().includes(query.trim().toLowerCase()));
+    });
+  }
+
+  private getFeederDevices(): SmartPetFeederDevice[] {
+    return this.homey.drivers.getDriver('feeder').getDevices() as SmartPetFeederDevice[];
+  }
+
+  /**
+   * The feeder a widget shows. Without a selection, the only paired feeder is used,
+   * so the widget works without configuration.
+   */
+  private getWidgetDevice(deviceId?: string): SmartPetFeederDevice {
+    const devices = this.getFeederDevices();
+    if (!deviceId) {
+      if (devices.length === 1) return devices[0];
+      throw new Error(this.homey.__(devices.length === 0 ? 'widget.errors.no_devices' : 'widget.errors.select_device'));
+    }
+    // The widget sends the id as a query string, so compare as strings: PetSafe ids can be numbers.
+    const device = devices.find(d => String(d.getData().id) === String(deviceId));
+    if (!device) throw new Error(this.homey.__('widget.errors.device_not_found'));
+    return device;
+  }
+
+  public async getWidgetState(deviceId?: string): Promise<WidgetState> {
+    return this.getWidgetDevice(deviceId).getWidgetState();
+  }
+
+  public async feedFromWidget(deviceId?: string): Promise<void> {
+    await this.getWidgetDevice(deviceId).triggerFeed();
   }
 
   private async initPetSafeClient() {
@@ -34,23 +71,26 @@ export class MyPetSafeApp extends Homey.App {
     }
   }
 
-  private updateDeviceData = async () => {
+  public updateDeviceData = async () => {
     this.log('updateDeviceData');
-    this.feeders = await this.petSafeClient!.getFeeders();
+    if (!this.petSafeClient) return false;
     try {
+      this.feeders = await this.petSafeClient.getFeeders();
+      await this.homey.drivers.getDriver('feeder').ready();
       const feederDriver = <FeederDriver> this.homey.drivers.getDriver('feeder');
-      await new Promise(resolve => setTimeout(resolve, 1000));
       feederDriver.setFeederData(this.feeders);
       return true;
     } catch (e) {
+      this.error('updateDeviceData: error updating feeder data', e);
       return false;
-      this.log('updateDeviceData: error setting feeder data', e);
     }
     // this.scoopers = await this.petSafeClient!.getLitterboxes();
   }
 
   public pairingInitializeAccount(session: PairSession) {
-    var email: string | undefined;
+    let email = '';
+    let emailError: string | undefined;
+
     session.setHandler('showView', async (view) => {
       if (view === 'prepare_pair') {
         if (this.petSafeClient && this.petSafeClient.getAccessToken) {
@@ -59,16 +99,26 @@ export class MyPetSafeApp extends Homey.App {
           await session.showView('email');
         }
       }
+
+      // Homey's own Continue button can't be intercepted in a custom view, so the
+      // code is requested here, once Homey has moved on to the pincode view.
+      if (view === 'pincode') {
+        emailError = await this.requestPairingCode(email);
+        if (emailError) await session.showView('email');
+      }
     });
 
-    session.setHandler('email_submitted', async (data: {email: string}) => {
-      email = data.email;
-      this.log('pair: email submitted', email);
-      this.petSafeClient = new PetSafeClient(email);
-      this.log('petsafeclient created, requesting code now');
-      await this.petSafeClient.requestCode();
-      this.log('code requested');
+    // The email view reports what the user typed; nothing is sent to PetSafe yet.
+    session.setHandler('email_changed', async (data: {email: string}) => {
+      email = data.email.trim();
       return true;
+    });
+
+    // The email view asks for this when it opens, to refill the field and show any error.
+    session.setHandler('email_view_loaded', async () => {
+      const result = {email, error: emailError};
+      emailError = undefined;
+      return result;
     });
 
     session.setHandler("pincode", async (pincode) => {
@@ -80,6 +130,22 @@ export class MyPetSafeApp extends Homey.App {
       this.petSafeClient!.onTokenRefreshed(() => this.updateTokensInStorage());
       return true;
     });
+  }
+
+  /** Requests a pairing code by email. Returns a translated error message, or undefined on success. */
+  private async requestPairingCode(email: string): Promise<string | undefined> {
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      return this.homey.__('errors.invalid_email');
+    }
+    try {
+      this.petSafeClient = new PetSafeClient(email);
+      await this.petSafeClient.requestCode();
+      this.log('pair: code requested');
+      return undefined;
+    } catch (e) {
+      this.error('pair: requesting code failed', e);
+      return this.homey.__('errors.request_code_failed');
+    }
   }
 
   private updateTokensInStorage() {

@@ -1,0 +1,134 @@
+{
+  "triggers": [
+    {
+      "id": "low_food_true",
+      "title": {
+        "ar": "الطعام ينفد",
+        "da": "Foderet er ved at slippe op",
+        "de": "Futter wird knapp",
+        "en": "Food is running low",
+        "es": "La comida se está acabando",
+        "fr": "La nourriture est presque épuisée",
+        "it": "Il cibo sta finendo",
+        "ko": "사료가 부족합니다",
+        "nl": "Voer raakt op",
+        "no": "Maten holder på å gå tom",
+        "pl": "Jedzenie się kończy",
+        "ru": "Корм заканчивается",
+        "sv": "Maten håller på att ta slut"
+      }
+    },
+    {
+      "id": "low_food_false",
+      "title": {
+        "ar": "الطعام لم يعد ينفد",
+        "da": "Foderet er ikke længere ved at slippe op",
+        "de": "Futter ist nicht mehr knapp",
+        "en": "Food is no longer running low",
+        "es": "La comida ya no se está acabando",
+        "fr": "La nourriture n'est plus presque épuisée",
+        "it": "Il cibo non sta più finendo",
+        "ko": "사료 부족이 해제되었습니다",
+        "nl": "Voer raakt niet meer op",
+        "no": "Maten holder ikke lenger på å gå tom",
+        "pl": "Jedzenie już się nie kończy",
+        "ru": "Корм больше не заканчивается",
+        "sv": "Maten håller inte längre på att ta slut"
+      }
+    },
+    {
+      "id": "no_food_true",
+      "title": {
+        "ar": "نفد الطعام",
+        "da": "Foderet er sluppet op",
+        "de": "Futter ist leer",
+        "en": "Food ran out",
+        "es": "La comida se ha acabado",
+        "fr": "La nourriture est épuisée",
+        "it": "Il cibo è finito",
+        "ko": "사료가 없습니다",
+        "nl": "Voer is op",
+        "no": "Maten er tom",
+        "pl": "Jedzenie się skończyło",
+        "ru": "Корм закончился",
+        "sv": "Maten är slut"
+      }
+    },
+    {
+      "id": "no_food_false",
+      "title": {
+        "ar": "تمت إعادة ملء الطعام",
+        "da": "Foderet er fyldt op",
+        "de": "Futter wurde nachgefüllt",
+        "en": "Food was refilled",
+        "es": "La comida se ha rellenado",
+        "fr": "La nourriture a été rechargée",
+        "it": "Il cibo è stato ricaricato",
+        "ko": "사료가 보충되었습니다",
+        "nl": "Voer is bijgevuld",
+        "no": "Maten er fylt på",
+        "pl": "Jedzenie zostało uzupełnione",
+        "ru": "Корм пополнен",
+        "sv": "Maten har fyllts på"
+      }
+    }
+  ],
+  "conditions": [
+    {
+      "id": "is_low_on_food",
+      "title": {
+        "ar": "الطعام !{{ينفد|لا ينفد}}",
+        "da": "Foderet !{{er|er ikke}} ved at slippe op",
+        "de": "Futter !{{wird|wird nicht}} knapp",
+        "en": "Food !{{is|is not}} running low",
+        "es": "La comida !{{se está|no se está}} acabando",
+        "fr": "La nourriture !{{est|n'est pas}} presque épuisée",
+        "it": "Il cibo !{{sta|non sta}} finendo",
+        "ko": "사료가 !{{부족합니다|부족하지 않습니다}}",
+        "nl": "Voer !{{raakt|raakt niet}} op",
+        "no": "Maten !{{holder|holder ikke}} på å gå tom",
+        "pl": "Jedzenie !{{się kończy|się nie kończy}}",
+        "ru": "Корм !{{заканчивается|не заканчивается}}",
+        "sv": "Maten !{{håller|håller inte}} på att ta slut"
+      }
+    },
+    {
+      "id": "is_out_of_food",
+      "title": {
+        "ar": "الطعام !{{نفد|لم ينفد}}",
+        "da": "Foderet !{{er|er ikke}} sluppet op",
+        "de": "Futter !{{ist|ist nicht}} leer",
+        "en": "Food !{{has|has not}} run out",
+        "es": "La comida !{{se ha|no se ha}} acabado",
+        "fr": "La nourriture !{{est|n'est pas}} épuisée",
+        "it": "Il cibo !{{è|non è}} finito",
+        "ko": "사료가 !{{없습니다|있습니다}}",
+        "nl": "Voer !{{is|is niet}} op",
+        "no": "Maten !{{er|er ikke}} tom",
+        "pl": "Jedzenie !{{się skończyło|się nie skończyło}}",
+        "ru": "Корм !{{закончился|не закончился}}",
+        "sv": "Maten !{{är|är inte}} slut"
+      }
+    }
+  ],
+  "actions": [
+    {
+      "id": "feed_now",
+      "title": {
+        "ar": "أطعم الآن",
+        "da": "Foder nu",
+        "de": "Jetzt füttern",
+        "en": "Feed now",
+        "es": "Alimentar ahora",
+        "fr": "Nourrir maintenant",
+        "it": "Alimenta ora",
+        "ko": "지금 급식",
+        "nl": "Stuur voer",
+        "no": "Mat nå",
+        "pl": "Karm teraz",
+        "ru": "Кормить сейчас",
+        "sv": "Mata nu"
+      }
+    }
+  ]
+}

@@ -1,5 +1,32 @@
 {
-  "status": {
-    "initializing": "Initialiseren, dit duurt ~5 minuten..."
+  "pair": {
+    "email": {
+      "label": "E-mailadres"
+    }
+  },
+  "errors": {
+    "invalid_email": "Voer een geldig e-mailadres in.",
+    "request_code_failed": "De pincode kon niet worden verstuurd. Controleer je e-mailadres en probeer het opnieuw.",
+    "feeder_unavailable": "De voerautomaat is nu niet bereikbaar. Probeer het later opnieuw."
+  },
+  "widget": {
+    "title": "Voerautomaat",
+    "feed_now": "Stuur voer",
+    "feeding": "Voer sturen…",
+    "fed": "Portie gegeven",
+    "food_ok": "Voldoende voer",
+    "food_low": "Voer raakt op",
+    "food_empty": "Voer is op",
+    "unavailable": "Voerautomaat niet bereikbaar",
+    "last_fed_today": "Laatst gevoerd vandaag om __time__",
+    "last_fed_yesterday": "Laatst gevoerd gisteren om __time__",
+    "last_fed_date": "Laatst gevoerd __date__ om __time__",
+    "no_recent_feeding": "Niet gevoerd in de afgelopen 7 dagen",
+    "locked": "Kinderslot aan",
+    "errors": {
+      "no_devices": "Voeg eerst een voerautomaat toe aan Homey.",
+      "select_device": "Kies een voerautomaat in de instellingen van de widget.",
+      "device_not_found": "Deze voerautomaat is verwijderd. Kies een andere in de instellingen van de widget."
+    }
   }
 }

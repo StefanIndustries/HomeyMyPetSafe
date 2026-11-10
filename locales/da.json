@@ -1,5 +1,12 @@
 {
-  "status": {
-    "initializing": "Initialiserer, dette tager ca. 5 minutter..."
+  "pair": {
+    "email": {
+      "label": "E-mail"
+    }
+  },
+  "errors": {
+    "invalid_email": "Indtast en gyldig e-mailadresse.",
+    "request_code_failed": "Pinkoden kunne ikke sendes. Tjek din e-mailadresse, og prøv igen.",
+    "feeder_unavailable": "Foderautomaten kan ikke nås lige nu. Prøv igen senere."
   }
 }

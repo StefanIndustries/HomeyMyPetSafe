@@ -1,14 +1,15 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.mypetsafe",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "compatibility": ">=12.2.0",
   "sdk": 3,
   "platforms": [
     "local"
   ],
   "name": {
-    "en": "MyPetSafe"
+    "en": "MyPetSafe",
+    "nl": "MyPetSafe"
   },
   "description": {
     "ar": "تطبيق MyPetSafe لهومي. تحكم في مغذيات MyPetSafe الذكية الخاصة بك.",

@@ -32,7 +32,9 @@
     "cloud"
   ],
   "energy": {
-    "batteries": ["OTHER"]
+    "batteries": [
+      "OTHER"
+    ]
   },
   "images": {
     "small": "{{driverAssetsPath}}/images/small.png",
@@ -46,7 +48,9 @@
     },
     {
       "id": "email",
-      "navigation": { "next": "pincode" }
+      "navigation": {
+        "next": "pincode"
+      }
     },
     {
       "id": "pincode",
@@ -85,43 +89,27 @@
         "type": "number",
         "length": 6
       },
-      "navigation": { "next": "list_devices" }
+      "navigation": {
+        "next": "list_devices"
+      }
     },
     {
       "id": "list_devices",
       "template": "list_devices",
-      "navigation": { "next": "add_devices" }
+      "navigation": {
+        "next": "add_devices"
+      }
     },
     {
       "id": "add_devices",
       "template": "add_devices",
-      "navigation": { "next": "done" }
+      "navigation": {
+        "next": "done"
+      }
     },
     {
       "id": "done",
       "template": "done"
     }
-  ],
-  "flow": {
-    "actions": [
-      {
-        "id": "feed_now",
-        "title": {
-          "ar": "أطعم الآن",
-          "da": "Foder nu",
-          "de": "Jetzt füttern",
-          "en": "Feed now",
-          "es": "Alimentar ahora",
-          "fr": "Nourrir maintenant",
-          "it": "Alimenta ora",
-          "ko": "지금 급식",
-          "nl": "Stuur voer",
-          "no": "Mat nå",
-          "pl": "Karm teraz",
-          "ru": "Кормить сейчас",
-          "sv": "Mata nu"
-        }
-      }
-    ]
-  }
+  ]
 }

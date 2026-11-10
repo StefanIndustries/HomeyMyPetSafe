@@ -1,26 +1,25 @@
-<form class="homey-form">
+<form class="homey-form" onsubmit="return false;">
     <div class="homey-form-group">
-        <label class="homey-form-label" for="email">Email</label>
-        <input class="homey-form-input" id="email" type="email" placeholder="example@mail.com" autocomplete="off"/>
+        <label class="homey-form-label" for="email" data-i18n="pair.email.label">Email</label>
+        <input class="homey-form-input" id="email" type="email" placeholder="example@mail.com" autocomplete="email"/>
     </div>
 </form>
-<br><br>
-<button class="homey-button-primary-full" onclick="confirmEmail()" id="submit">Submit</button>
 
 <script type="application/javascript">
-    const submitButton = document.getElementById('submit');
+    // Homey's own Continue button moves to the pincode view; the app requests the
+    // code there. This view only reports what was typed, and shows any error when
+    // the app sends the user back here.
+    const emailInput = document.getElementById('email');
 
-    function confirmEmail() {
-        submitButton.classList.add('is-loading');
-        const email = document.getElementById('email').value;
-        const dataToSend = {email: email};
-        Homey.emit('email_submitted', dataToSend)
-            .then(function(result) {
-                if (result) {
-                    Homey.nextView();
-                }
-            }).catch(function(err) {
-            Homey.alert(err);
-        });
+    function reportEmail() {
+        Homey.emit('email_changed', {email: emailInput.value}).catch(function () {});
     }
+
+    emailInput.addEventListener('input', reportEmail);
+    emailInput.addEventListener('change', reportEmail);
+
+    Homey.emit('email_view_loaded').then(function (state) {
+        if (state && state.email) emailInput.value = state.email;
+        if (state && state.error) Homey.alert(state.error, 'error');
+    }).catch(function () {});
 </script>

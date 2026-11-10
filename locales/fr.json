@@ -1,5 +1,12 @@
 {
-  "status": {
-    "initializing": "Initialisation, cela prend environ 5 minutes..."
+  "pair": {
+    "email": {
+      "label": "E-mail"
+    }
+  },
+  "errors": {
+    "invalid_email": "Saisissez une adresse e-mail valide.",
+    "request_code_failed": "Impossible d'envoyer le code PIN. Vérifiez votre adresse e-mail et réessayez.",
+    "feeder_unavailable": "Le distributeur est injoignable pour le moment. Réessayez plus tard."
   }
 }
