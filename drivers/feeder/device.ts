@@ -41,8 +41,22 @@ export class SmartPetFeederDevice extends Homey.Device {
       .trigger(this);
   }
 
+  /**
+   * Picks the most recent feeding ourselves: PetSafe returns messages oldest first, and
+   * mypetsafe <= 1.5.0's getLastFeeding() returned the first one, i.e. a week-old feeding.
+   */
+  private async getLatestFeeding(feeder: DeviceSmartFeed) {
+    const messages = await feeder.getMessagesSince();
+    let latest: (typeof messages)[number] | null = null;
+    for (const message of messages) {
+      if (message.message_type !== 'FEED_DONE' || !message.created_at) continue;
+      if (!latest || Date.parse(message.created_at) > Date.parse(latest.created_at)) latest = message;
+    }
+    return latest;
+  }
+
   private async updateLastFeedingTime(feeder: DeviceSmartFeed) {
-    const message = await feeder.getLastFeeding();
+    const message = await this.getLatestFeeding(feeder);
     if (!message?.created_at) return;
     const timezone = await this.homey.clock.getTimezone();
     const formatter = new Intl.DateTimeFormat([], {
