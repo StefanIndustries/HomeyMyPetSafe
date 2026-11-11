@@ -18,5 +18,9 @@
   "1.0.4": {
     "en": "New dashboard widget to see the food level and feed your pet with one tap. Also redesigned icons, flow cards for low and empty food, a fixed lock state and faster startup",
     "nl": "Nieuwe dashboardwidget om het voerniveau te zien en je huisdier met één tik te voeren. Verder nieuwe iconen, flowkaarten voor bijna leeg en leeg voer, een gerepareerde vergrendelstatus en sneller opstarten"
+  },
+  "1.0.5": {
+    "en": "Fixed latest feeding time being displayed incorrectly on the dashboard widget and capability.",
+    "nl": "Het laatst gevoerde tijdstip wordt nu correct weergegeven op de dashboardwidget en apparaatfunctie."
   }
 }
