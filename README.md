@@ -6,11 +6,11 @@ Connect your PetSafe Smart Feed automatic feeder to [Homey](https://homey.app). 
 
 ## Features
 
-- **Feed now**: give one portion from the device tile, as a quick action, or from a flow.
+- **Feed now**: give one portion from the device tile, as a quick action, or from a flow, or pick a portion size from 1/8 cup up to 4 cups in a flow.
 - **Dashboard widget**: shows the food level and last feeding, with a button to give a portion straight from the dashboard.
 - **Food level**: alarms for food running low and food that has run out, with flow triggers and conditions for both.
 - **Last feeding time**: see on the device when your pet was last fed.
-- **Battery and power**: battery level, a low-battery alarm, and an alarm when the power adapter is disconnected.
+- **Battery and power**: battery level, and an alarm when the power adapter is disconnected.
 - **Child lock**: lock or unlock the buttons on the feeder from Homey or a flow.
 - **Easy setup**: sign in with a pincode sent to your email, with no password needed, and add every feeder in your account at once.
 - **13 languages**: English, Dutch, German, French, Spanish, Italian, Danish, Norwegian, Swedish, Polish, Russian, Korean and Arabic.
@@ -21,9 +21,9 @@ Connect your PetSafe Smart Feed automatic feeder to [Homey](https://homey.app). 
 |---|---|
 | Triggers | Food is running low · Food is no longer running low · Food ran out · Food was refilled |
 | Conditions | Food is / is not running low · Food has / has not run out |
-| Actions | Feed now |
+| Actions | Feed now · Feed a portion (1/8 cup up to 4 cups) |
 
-Homey also adds its standard cards for battery level, the battery and power alarms, and the lock (locked/unlocked triggers, an *is locked* condition, and lock/unlock actions).
+Homey also adds its standard cards for battery level, the power alarm, and the lock (locked/unlocked triggers, an *is locked* condition, and lock/unlock actions).
 
 ## Requirements
 

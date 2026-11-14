@@ -22,7 +22,6 @@ export class SmartPetFeederDevice extends Homey.Device {
     this.updateAlarm('alarm_low_food', feeder.foodLowStatus > 0, 'low_food').catch(this.error);
     this.updateAlarm('alarm_no_food', feeder.foodLowStatus > 1, 'no_food').catch(this.error);
     this.setCapabilityValue('alarm_power', !feeder.isAdapterInstalled).catch(this.error);
-    this.setCapabilityValue('alarm_battery', !feeder.isBatteriesInstalled || feeder.batteryLevel < 10).catch(this.error);
     this.setCapabilityValue('locked', feeder.isLocked).catch(this.error);
     this.updateLastFeedingTime(feeder).catch(this.error);
     this.setAvailable().catch(this.error);
@@ -100,6 +99,8 @@ export class SmartPetFeederDevice extends Homey.Device {
 
   async onInit() {
     this.log('SmartPetFeederDevice has been initialized');
+    // alarm_battery was dropped in 1.0.6: Homey doesn't allow it together with measure_battery.
+    if (this.hasCapability('alarm_battery')) await this.removeCapability('alarm_battery').catch(this.error);
     await this.registerCapabilityListeners();
 
     // The app may already have fetched data before this device finished initializing.
@@ -141,9 +142,10 @@ export class SmartPetFeederDevice extends Homey.Device {
     });
   }
 
-  public async triggerFeed() {
+  /** @param amount portion size in 1/8 cups, as used by the PetSafe API */
+  public async triggerFeed(amount = 1) {
     const feeder = await this.getFeeder();
-    await feeder.feed(1, false, true);
+    await feeder.feed(amount, false, true);
     this.setData(feeder);
 
     // PetSafe logs the feeding a few seconds after the meal; refresh then for the new feed time.

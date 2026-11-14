@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.mypetsafe",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "compatibility": ">=12.2.0",
   "sdk": 3,
   "platforms": [
@@ -12,26 +12,26 @@
     "nl": "MyPetSafe"
   },
   "description": {
-    "ar": "تطبيق MyPetSafe لهومي. تحكم في مغذيات MyPetSafe الذكية الخاصة بك.",
-    "da": "MyPetSafe-app til Homey. Styr dine MyPetSafe smarte foderautomater.",
-    "de": "MyPetSafe-App für Homey. Steuern Sie Ihre intelligenten MyPetSafe-Futterautomaten.",
-    "en": "MyPetSafe app for Homey. Control your MyPetSafe smart feeders.",
-    "es": "Aplicación MyPetSafe para Homey. Controla tus comederos inteligentes MyPetSafe.",
-    "fr": "Application MyPetSafe pour Homey. Contrôlez vos distributeurs intelligents MyPetSafe.",
-    "it": "App MyPetSafe per Homey. Controlla i tuoi alimentatori intelligenti MyPetSafe.",
-    "ko": "Homey용 MyPetSafe 앱. MyPetSafe 스마트 급식기를 제어하세요.",
-    "nl": "MyPetSafe-app voor Homey. Bedien je MyPetSafe slimme voederbakken.",
-    "no": "MyPetSafe-app for Homey. Kontroller dine MyPetSafe smarte matere.",
-    "pl": "Aplikacja MyPetSafe dla Homey. Steruj swoimi inteligentnymi podajnikami MyPetSafe.",
-    "ru": "Приложение MyPetSafe для Homey. Управляйте своими умными кормушками MyPetSafe.",
-    "sv": "MyPetSafe-app för Homey. Kontrollera dina MyPetSafe smarta matare."
+    "ar": "وجبات حيوانك الأليف في موعدها دائمًا، أينما كنت.",
+    "da": "Dit kæledyrs måltider altid til tiden, uanset hvor du er.",
+    "de": "Die Mahlzeiten Ihres Haustiers immer pünktlich, wo auch immer Sie sind.",
+    "en": "Your pet's meals always on time, wherever you are.",
+    "es": "Las comidas de tu mascota siempre a tiempo, estés donde estés.",
+    "fr": "Les repas de votre animal toujours à l'heure, où que vous soyez.",
+    "it": "I pasti del tuo animale sempre puntuali, ovunque tu sia.",
+    "ko": "어디에 있든 반려동물의 식사를 항상 제때에.",
+    "nl": "De maaltijden van je huisdier altijd op tijd, waar je ook bent.",
+    "no": "Kjæledyrets måltider alltid i tide, uansett hvor du er.",
+    "pl": "Posiłki Twojego pupila zawsze na czas, gdziekolwiek jesteś.",
+    "ru": "Корм для вашего питомца всегда вовремя, где бы вы ни были.",
+    "sv": "Ditt husdjurs måltider alltid i tid, var du än är."
   },
   "category": [
     "appliances"
   ],
   "tags": {},
   "brandColor": "#083874",
-  "homepage": "https://www.petsafe.com/",
+  "homepage": "https://github.com/StefanIndustries/HomeyMyPetSafe",
   "source": "https://github.com/StefanIndustries/HomeyMyPetSafe",
   "bugs": {
     "url": "https://github.com/StefanIndustries/HomeyMyPetSafe/issues"
@@ -232,6 +232,355 @@
             "filter": "driver_id=feeder"
           }
         ]
+      },
+      {
+        "id": "feed_amount",
+        "title": {
+          "ar": "أطعم كمية محددة",
+          "da": "Foder en portion",
+          "de": "Portion füttern",
+          "en": "Feed a portion",
+          "es": "Dar una ración",
+          "fr": "Donner une portion",
+          "it": "Dai una porzione",
+          "ko": "정량 급식",
+          "nl": "Stuur een portie voer",
+          "no": "Gi en porsjon",
+          "pl": "Podaj porcję",
+          "ru": "Дать порцию корма",
+          "sv": "Ge en portion"
+        },
+        "titleFormatted": {
+          "ar": "أطعم [[amount]]",
+          "da": "Foder [[amount]]",
+          "de": "[[amount]] füttern",
+          "en": "Feed [[amount]]",
+          "es": "Dar [[amount]]",
+          "fr": "Donner [[amount]]",
+          "it": "Dai [[amount]]",
+          "ko": "[[amount]] 급식",
+          "nl": "Stuur [[amount]] voer",
+          "no": "Gi [[amount]]",
+          "pl": "Podaj [[amount]]",
+          "ru": "Дать [[amount]] корма",
+          "sv": "Ge [[amount]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=feeder"
+          },
+          {
+            "type": "dropdown",
+            "name": "amount",
+            "title": {
+              "ar": "الكمية",
+              "da": "Mængde",
+              "de": "Menge",
+              "en": "Amount",
+              "es": "Cantidad",
+              "fr": "Quantité",
+              "it": "Quantità",
+              "ko": "양",
+              "nl": "Hoeveelheid",
+              "no": "Mengde",
+              "pl": "Ilość",
+              "ru": "Количество",
+              "sv": "Mängd"
+            },
+            "values": [
+              {
+                "id": "1",
+                "label": {
+                  "ar": "⅛ كوب",
+                  "da": "⅛ kop",
+                  "de": "⅛ Tasse",
+                  "en": "⅛ cup",
+                  "es": "⅛ taza",
+                  "fr": "⅛ tasse",
+                  "it": "⅛ tazza",
+                  "ko": "⅛ 컵",
+                  "nl": "⅛ kop",
+                  "no": "⅛ kopp",
+                  "pl": "⅛ szklanki",
+                  "ru": "⅛ стакана",
+                  "sv": "⅛ kopp"
+                }
+              },
+              {
+                "id": "2",
+                "label": {
+                  "ar": "¼ كوب",
+                  "da": "¼ kop",
+                  "de": "¼ Tasse",
+                  "en": "¼ cup",
+                  "es": "¼ taza",
+                  "fr": "¼ tasse",
+                  "it": "¼ tazza",
+                  "ko": "¼ 컵",
+                  "nl": "¼ kop",
+                  "no": "¼ kopp",
+                  "pl": "¼ szklanki",
+                  "ru": "¼ стакана",
+                  "sv": "¼ kopp"
+                }
+              },
+              {
+                "id": "3",
+                "label": {
+                  "ar": "⅜ كوب",
+                  "da": "⅜ kop",
+                  "de": "⅜ Tasse",
+                  "en": "⅜ cup",
+                  "es": "⅜ taza",
+                  "fr": "⅜ tasse",
+                  "it": "⅜ tazza",
+                  "ko": "⅜ 컵",
+                  "nl": "⅜ kop",
+                  "no": "⅜ kopp",
+                  "pl": "⅜ szklanki",
+                  "ru": "⅜ стакана",
+                  "sv": "⅜ kopp"
+                }
+              },
+              {
+                "id": "4",
+                "label": {
+                  "ar": "½ كوب",
+                  "da": "½ kop",
+                  "de": "½ Tasse",
+                  "en": "½ cup",
+                  "es": "½ taza",
+                  "fr": "½ tasse",
+                  "it": "½ tazza",
+                  "ko": "½ 컵",
+                  "nl": "½ kop",
+                  "no": "½ kopp",
+                  "pl": "½ szklanki",
+                  "ru": "½ стакана",
+                  "sv": "½ kopp"
+                }
+              },
+              {
+                "id": "5",
+                "label": {
+                  "ar": "⅝ كوب",
+                  "da": "⅝ kop",
+                  "de": "⅝ Tasse",
+                  "en": "⅝ cup",
+                  "es": "⅝ taza",
+                  "fr": "⅝ tasse",
+                  "it": "⅝ tazza",
+                  "ko": "⅝ 컵",
+                  "nl": "⅝ kop",
+                  "no": "⅝ kopp",
+                  "pl": "⅝ szklanki",
+                  "ru": "⅝ стакана",
+                  "sv": "⅝ kopp"
+                }
+              },
+              {
+                "id": "6",
+                "label": {
+                  "ar": "¾ كوب",
+                  "da": "¾ kop",
+                  "de": "¾ Tasse",
+                  "en": "¾ cup",
+                  "es": "¾ taza",
+                  "fr": "¾ tasse",
+                  "it": "¾ tazza",
+                  "ko": "¾ 컵",
+                  "nl": "¾ kop",
+                  "no": "¾ kopp",
+                  "pl": "¾ szklanki",
+                  "ru": "¾ стакана",
+                  "sv": "¾ kopp"
+                }
+              },
+              {
+                "id": "7",
+                "label": {
+                  "ar": "⅞ كوب",
+                  "da": "⅞ kop",
+                  "de": "⅞ Tasse",
+                  "en": "⅞ cup",
+                  "es": "⅞ taza",
+                  "fr": "⅞ tasse",
+                  "it": "⅞ tazza",
+                  "ko": "⅞ 컵",
+                  "nl": "⅞ kop",
+                  "no": "⅞ kopp",
+                  "pl": "⅞ szklanki",
+                  "ru": "⅞ стакана",
+                  "sv": "⅞ kopp"
+                }
+              },
+              {
+                "id": "8",
+                "label": {
+                  "ar": "1 كوب",
+                  "da": "1 kop",
+                  "de": "1 Tasse",
+                  "en": "1 cup",
+                  "es": "1 taza",
+                  "fr": "1 tasse",
+                  "it": "1 tazza",
+                  "ko": "1 컵",
+                  "nl": "1 kop",
+                  "no": "1 kopp",
+                  "pl": "1 szklanka",
+                  "ru": "1 стакан",
+                  "sv": "1 kopp"
+                }
+              },
+              {
+                "id": "10",
+                "label": {
+                  "ar": "1¼ كوب",
+                  "da": "1¼ kopper",
+                  "de": "1¼ Tassen",
+                  "en": "1¼ cups",
+                  "es": "1¼ tazas",
+                  "fr": "1¼ tasses",
+                  "it": "1¼ tazze",
+                  "ko": "1¼ 컵",
+                  "nl": "1¼ kop",
+                  "no": "1¼ kopper",
+                  "pl": "1¼ szklanki",
+                  "ru": "1¼ стакана",
+                  "sv": "1¼ koppar"
+                }
+              },
+              {
+                "id": "12",
+                "label": {
+                  "ar": "1½ كوب",
+                  "da": "1½ kopper",
+                  "de": "1½ Tassen",
+                  "en": "1½ cups",
+                  "es": "1½ tazas",
+                  "fr": "1½ tasses",
+                  "it": "1½ tazze",
+                  "ko": "1½ 컵",
+                  "nl": "1½ kop",
+                  "no": "1½ kopper",
+                  "pl": "1½ szklanki",
+                  "ru": "1½ стакана",
+                  "sv": "1½ koppar"
+                }
+              },
+              {
+                "id": "14",
+                "label": {
+                  "ar": "1¾ كوب",
+                  "da": "1¾ kopper",
+                  "de": "1¾ Tassen",
+                  "en": "1¾ cups",
+                  "es": "1¾ tazas",
+                  "fr": "1¾ tasses",
+                  "it": "1¾ tazze",
+                  "ko": "1¾ 컵",
+                  "nl": "1¾ kop",
+                  "no": "1¾ kopper",
+                  "pl": "1¾ szklanki",
+                  "ru": "1¾ стакана",
+                  "sv": "1¾ koppar"
+                }
+              },
+              {
+                "id": "16",
+                "label": {
+                  "ar": "2 كوب",
+                  "da": "2 kopper",
+                  "de": "2 Tassen",
+                  "en": "2 cups",
+                  "es": "2 tazas",
+                  "fr": "2 tasses",
+                  "it": "2 tazze",
+                  "ko": "2 컵",
+                  "nl": "2 kop",
+                  "no": "2 kopper",
+                  "pl": "2 szklanki",
+                  "ru": "2 стакана",
+                  "sv": "2 koppar"
+                }
+              },
+              {
+                "id": "20",
+                "label": {
+                  "ar": "2½ كوب",
+                  "da": "2½ kopper",
+                  "de": "2½ Tassen",
+                  "en": "2½ cups",
+                  "es": "2½ tazas",
+                  "fr": "2½ tasses",
+                  "it": "2½ tazze",
+                  "ko": "2½ 컵",
+                  "nl": "2½ kop",
+                  "no": "2½ kopper",
+                  "pl": "2½ szklanki",
+                  "ru": "2½ стакана",
+                  "sv": "2½ koppar"
+                }
+              },
+              {
+                "id": "24",
+                "label": {
+                  "ar": "3 كوب",
+                  "da": "3 kopper",
+                  "de": "3 Tassen",
+                  "en": "3 cups",
+                  "es": "3 tazas",
+                  "fr": "3 tasses",
+                  "it": "3 tazze",
+                  "ko": "3 컵",
+                  "nl": "3 kop",
+                  "no": "3 kopper",
+                  "pl": "3 szklanki",
+                  "ru": "3 стакана",
+                  "sv": "3 koppar"
+                }
+              },
+              {
+                "id": "28",
+                "label": {
+                  "ar": "3½ كوب",
+                  "da": "3½ kopper",
+                  "de": "3½ Tassen",
+                  "en": "3½ cups",
+                  "es": "3½ tazas",
+                  "fr": "3½ tasses",
+                  "it": "3½ tazze",
+                  "ko": "3½ 컵",
+                  "nl": "3½ kop",
+                  "no": "3½ kopper",
+                  "pl": "3½ szklanki",
+                  "ru": "3½ стакана",
+                  "sv": "3½ koppar"
+                }
+              },
+              {
+                "id": "32",
+                "label": {
+                  "ar": "4 كوب",
+                  "da": "4 kopper",
+                  "de": "4 Tassen",
+                  "en": "4 cups",
+                  "es": "4 tazas",
+                  "fr": "4 tasses",
+                  "it": "4 tazze",
+                  "ko": "4 컵",
+                  "nl": "4 kop",
+                  "no": "4 kopper",
+                  "pl": "4 szklanki",
+                  "ru": "4 стакана",
+                  "sv": "4 koppar"
+                }
+              }
+            ]
+          }
+        ]
       }
     ]
   },
@@ -255,7 +604,6 @@
       "class": "petfeeder",
       "capabilities": [
         "measure_battery",
-        "alarm_battery",
         "alarm_power",
         "alarm_low_food",
         "alarm_no_food",

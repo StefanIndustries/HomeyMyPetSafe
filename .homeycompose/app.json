@@ -1,6 +1,6 @@
 {
   "id": "com.mypetsafe",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "compatibility": ">=12.2.0",
   "sdk": 3,
   "platforms": [
@@ -11,26 +11,26 @@
     "nl": "MyPetSafe"
   },
   "description": {
-    "ar": "تطبيق MyPetSafe لهومي. تحكم في مغذيات MyPetSafe الذكية الخاصة بك.",
-    "da": "MyPetSafe-app til Homey. Styr dine MyPetSafe smarte foderautomater.",
-    "de": "MyPetSafe-App für Homey. Steuern Sie Ihre intelligenten MyPetSafe-Futterautomaten.",
-    "en": "MyPetSafe app for Homey. Control your MyPetSafe smart feeders.",
-    "es": "Aplicación MyPetSafe para Homey. Controla tus comederos inteligentes MyPetSafe.",
-    "fr": "Application MyPetSafe pour Homey. Contrôlez vos distributeurs intelligents MyPetSafe.",
-    "it": "App MyPetSafe per Homey. Controlla i tuoi alimentatori intelligenti MyPetSafe.",
-    "ko": "Homey용 MyPetSafe 앱. MyPetSafe 스마트 급식기를 제어하세요.",
-    "nl": "MyPetSafe-app voor Homey. Bedien je MyPetSafe slimme voederbakken.",
-    "no": "MyPetSafe-app for Homey. Kontroller dine MyPetSafe smarte matere.",
-    "pl": "Aplikacja MyPetSafe dla Homey. Steruj swoimi inteligentnymi podajnikami MyPetSafe.",
-    "ru": "Приложение MyPetSafe для Homey. Управляйте своими умными кормушками MyPetSafe.",
-    "sv": "MyPetSafe-app för Homey. Kontrollera dina MyPetSafe smarta matare."
+    "ar": "وجبات حيوانك الأليف في موعدها دائمًا، أينما كنت.",
+    "da": "Dit kæledyrs måltider altid til tiden, uanset hvor du er.",
+    "de": "Die Mahlzeiten Ihres Haustiers immer pünktlich, wo auch immer Sie sind.",
+    "en": "Your pet's meals always on time, wherever you are.",
+    "es": "Las comidas de tu mascota siempre a tiempo, estés donde estés.",
+    "fr": "Les repas de votre animal toujours à l'heure, où que vous soyez.",
+    "it": "I pasti del tuo animale sempre puntuali, ovunque tu sia.",
+    "ko": "어디에 있든 반려동물의 식사를 항상 제때에.",
+    "nl": "De maaltijden van je huisdier altijd op tijd, waar je ook bent.",
+    "no": "Kjæledyrets måltider alltid i tide, uansett hvor du er.",
+    "pl": "Posiłki Twojego pupila zawsze na czas, gdziekolwiek jesteś.",
+    "ru": "Корм для вашего питомца всегда вовремя, где бы вы ни были.",
+    "sv": "Ditt husdjurs måltider alltid i tid, var du än är."
   },
   "category": [
     "appliances"
   ],
   "tags": {},
   "brandColor": "#083874",
-  "homepage": "https://www.petsafe.com/",
+  "homepage": "https://github.com/StefanIndustries/HomeyMyPetSafe",
   "source": "https://github.com/StefanIndustries/HomeyMyPetSafe",
   "bugs": {
     "url": "https://github.com/StefanIndustries/HomeyMyPetSafe/issues"

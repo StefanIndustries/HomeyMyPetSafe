@@ -27,6 +27,12 @@ export class FeederDriver extends Homey.Driver {
       await device.triggerFeed();
     });
 
+    this.homey.flow.getActionCard('feed_amount').registerRunListener(async (args) => {
+      const amount = Number(args.amount);
+      if (!Number.isInteger(amount) || amount < 1) throw new Error(`Invalid portion: ${args.amount}`);
+      await (args.device as SmartPetFeederDevice).triggerFeed(amount);
+    });
+
     this.homey.flow.getConditionCard('is_low_on_food').registerRunListener(async (args) => {
       return (args.device as SmartPetFeederDevice).isLowOnFood();
     });
